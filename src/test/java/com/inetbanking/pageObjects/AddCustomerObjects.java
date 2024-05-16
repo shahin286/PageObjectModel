@@ -1,5 +1,7 @@
 package com.inetbanking.pageObjects;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -7,7 +9,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import com.inetbanking.testCases.BasePage;
+
 public class AddCustomerObjects {
+	
+	BasePage bp = new BasePage(); 
 
 	WebDriver ldriver;
 	
@@ -118,8 +124,9 @@ public class AddCustomerObjects {
 	}
 
 
-	public void cusPassword(String password) {
+	public void cusPassword(String password) throws IOException {
 	txtPassword.sendKeys(password);
+	bp.captureScreenShot(ldriver, "Capturing the Password");
 	}
 
 
